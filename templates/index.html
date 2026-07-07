@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vlog Pilot AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <h1>🚀 Vlog Pilot AI</h1>
+
+        <form method="POST" enctype="multipart/form-data">
+
+            <input
+                type="text"
+                name="topic"
+                placeholder="Enter your vlog topic..."
+                required>
+
+            <input
+                type="file"
+                name="clips"
+                multiple>
+
+            <button type="submit">
+                🎬 Generate Complete Vlog
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

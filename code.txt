@@ -1,0 +1,51 @@
+import random
+
+def generate_script(topic: str):
+    hooks = [
+        f"Aaj kuch aisa hua {topic} ke saath jo main expect hi nahi kar raha tha...",
+        f"Yeh {topic} wali story aapko shock kar degi!",
+        f"Bas ek chhoti si {topic} ki wajah se sab badal gaya...",
+    ]
+
+    intros = [
+        "Main socha bilkul normal din hoga...",
+        "Sab kuch normal chal raha tha...",
+        "Mujhe laga aaj bhi ek simple din hai...",
+    ]
+
+    endings = [
+        "Aur us din mujhe samajh aaya ki chhoti cheezein bhi life badal deti hain.",
+        "Tab mujhe realize hua ki har moment special hota hai.",
+        "Aur yahi se meri story ka sabse important lesson mila.",
+    ]
+
+    script = f"""
+🎬 TITLE: {topic} | Real Life Story
+
+🔥 HOOK:
+{random.choice(hooks)}
+
+🎙️ INTRO:
+{random.choice(intros)}
+
+📖 MAIN SCRIPT:
+Aaj ka topic hai {topic}. Yeh experience mere liye bahut special tha.
+Main is moment ko kabhi bhool nahi paunga kyunki isne mujhe kuch sikhaya.
+
+⚡ SCENES:
+1. Normal day start
+2. Unexpected problem related to {topic}
+3. Emotional / turning point
+4. Solution or realization
+
+💡 ENDING:
+{random.choice(endings)}
+
+#hashtags:
+#{topic.replace(" ", "")} #vlog #minivlog #trending #story
+"""
+    return script
+
+if __name__ == "__main__":
+    topic = input("Enter topic: ")
+    print(generate_script(topic))
