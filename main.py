@@ -5,7 +5,7 @@ from shot_planner import generate_shot_plan
 from voice_generator import generate_voice
 from youtube_pack import generate_youtube_pack
 from editing_guide import generate_editing_guide
-from thumbnail_generator import generate_thumbnail_prompt
+from thumbnail_generator import generate_thumbnail
 import asyncio
 
 def main():
@@ -26,7 +26,7 @@ def main():
     print("\n✂️ Generating Editing Guide...")
     generate_editing_guide(topic)
 
-    generate_thumbnail_prompt(topic)
+    generate_thumbnail(topic)
 
     generate_titles(topic)
     

@@ -1,27 +1,35 @@
-from script_generator import generate_script
+from PIL import Image, ImageDraw, ImageFont
+import os
 
-def generate_thumbnail_prompt(topic):
-    prompt = f"""
-🎨 AI THUMBNAIL PROMPT
+OUTPUT_FOLDER = "static/thumbnails"
 
-Topic: {topic}
+def generate_thumbnail(title):
+    os.makedirs(OUTPUT_FOLDER, exist_ok=True)
 
-Create a YouTube Shorts thumbnail with:
+    width = 1280
+    height = 720
 
-- Cinematic lighting
-- High contrast
-- Bright colors
-- Emotional expression
-- Ultra realistic
-- Viral YouTube style
-- Big bold text
-- 9:16 composition
+    image = Image.new("RGB", (width, height), (25, 25, 45))
 
-Main Subject:
-{topic}
-"""
+    draw = ImageDraw.Draw(image)
 
-    with open("outputs/thumbnail_prompt.txt", "w", encoding="utf-8") as f:
-        f.write(prompt)
+    try:
+        font = ImageFont.truetype("DejaVuSans-Bold.ttf", 80)
+    except:
+        font = ImageFont.load_default()
 
-    print("🖼️ Thumbnail Prompt Generated!")
+    draw.text(
+        (80, 250),
+        title.upper(),
+        fill=(255, 255, 0),
+        font=font
+    )
+
+    output_path = os.path.join(
+        OUTPUT_FOLDER,
+        "thumbnail.png"
+    )
+
+    image.save(output_path)
+
+    return output_path

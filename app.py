@@ -1,3 +1,4 @@
+from thumbnail_generator import generate_thumbnail
 from flask import Flask, render_template, request, send_file
 import os
 import asyncio
@@ -33,6 +34,7 @@ def home():
         generate_youtube_pack(topic)
         generate_editing_guide(topic)
         asyncio.run(generate_voice())
+        thumbnail = generate_thumbnail(topic)
 
         script = open("outputs/output_script.txt", encoding="utf-8").read()
         titles = open("outputs/titles.txt", encoding="utf-8").read()
